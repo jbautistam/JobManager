@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Bau.Libraries.LibJob.Processor.Test</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Bau.Libraries.LibHelper" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Libraries\Jobs\LibJob.Application\LibJob.Application.csproj" />
+	</ItemGroup>
+
+</Project>

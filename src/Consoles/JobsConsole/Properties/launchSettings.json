@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "JobsManager": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\jbautistam\\Proyectos\\Development\\NewNet\\Applications\\JobManager\\TestScripts\\Test.Scripts\\FirstTest\\JobDefinition.xml\""
+    }
+  }
+}

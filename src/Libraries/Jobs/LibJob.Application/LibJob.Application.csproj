@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Bau.Libraries.LibJob.Application</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Processor\EventArguments\**" />
+		<Compile Remove="Processor\Log\**" />
+		<EmbeddedResource Remove="Processor\EventArguments\**" />
+		<EmbeddedResource Remove="Processor\Log\**" />
+		<None Remove="Processor\EventArguments\**" />
+		<None Remove="Processor\Log\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Bau.Libraries.LibDataStructures" Version="1.0.1" />
+		<PackageReference Include="Bau.Libraries.LibHelper" Version="1.0.1" />
+		<PackageReference Include="Bau.Libraries.LibMarkup" Version="1.0.0" />
+		<PackageReference Include="System.Composition" Version="1.2.0" />
+	</ItemGroup>
+
+</Project>

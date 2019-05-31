@@ -1,0 +1,4 @@
+﻿Parameter ClientId: {{ClientId}}
+Parameter Message: {{Message}}
+Parameter Date: {{Date}}
+Parameter AnotherParameter: {{AnotherParameter}}

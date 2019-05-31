@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<JobManager>
+	<Processor>
+		C:\Users\jbautistam\Proyectos\Development\NewNet\Applications\JobManager\src\Processors\LibJob.Processor.Test\bin\Debug\netstandard2.0
+	</Processor>
+</JobManager>

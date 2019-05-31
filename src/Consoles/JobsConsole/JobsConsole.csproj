@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp2.1</TargetFramework>
+		<RootNamespace>Bau.Applications.JobsManager</RootNamespace>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Management.Automation" Version="6.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Libraries\Jobs\LibJob.Application\LibJob.Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Data\ProcessorPaths.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

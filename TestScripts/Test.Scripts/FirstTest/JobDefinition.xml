@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<Job>
+	<Name>Job definition: first project</Name>
+	<Description/>
+	<Parameter Key="ClientId" Value="12332" />
+	<Parameter Key="AnotherParameter" Value="default" />
+	<!-- Pasos -->
+	<Step Key="Job1" Plugin="TestProcessor" StartWithPreviousError="false">
+		<Name>Job 1</Name>
+		<Script>C:\Users\jbautistam\Proyectos\Development\NewNet\Applications\JobManager\TestScripts\Test.Scripts\FirstTest\StepFirstScript.txt</Script>
+		<Parameter Key="Message" Value="Message from job 1" />
+		<Parameter Key="Date" Type="DateTime" Value="Message from job 1" />
+		<Parameter Key="AnotherParameter" Value="updated" />
+	</Step>
+</Job>
