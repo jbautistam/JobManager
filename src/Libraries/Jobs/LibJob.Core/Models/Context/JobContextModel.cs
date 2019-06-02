@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
-namespace Bau.Libraries.LibJob.Application.Models.Context
+namespace Bau.Libraries.LibJob.Core.Models.Context
 {
 	/// <summary>
 	///		Contexto del trabajo
 	/// </summary>
 	public class JobContextModel
 	{
-		public JobContextModel(JobManager jobManager, Interfaces.ILogger logger, Interfaces.IConsoleOutput consoleOutput)
+		public JobContextModel(Interfaces.ILogger logger, Interfaces.IConsoleOutput consoleOutput)
 		{
-			JobManager = jobManager;
 			Logger = logger;
 			ConsoleOutput = consoleOutput;
 		}
@@ -20,7 +19,7 @@ namespace Bau.Libraries.LibJob.Application.Models.Context
 		/// <summary>
 		///		Actualiza el trabajo y paso actual
 		/// </summary>
-		internal void UpdateJobStep(string processorKey, ProcessStepModel step)
+		public void UpdateJobStep(string processorKey, ProcessStepModel step)
 		{
 			ActualProcessorKey = processorKey;
 			ActualStep = step;
@@ -122,11 +121,6 @@ namespace Bau.Libraries.LibJob.Application.Models.Context
 		{
 			return $"{ActualStep.Job.Name} - {ActualStep.Name}";
 		}
-
-		/// <summary>
-		///		Manager de trabajos
-		/// </summary>
-		public JobManager JobManager { get; }
 
 		/// <summary>
 		///		Clave del procesador actual

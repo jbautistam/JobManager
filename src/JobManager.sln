@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Scripts", "..\TestScri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibJob.Processor.Test", "Processors\LibJob.Processor.Test\LibJob.Processor.Test.csproj", "{BF128C6C-137A-4070-9AD1-000FC9E59A77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibJob.Core", "Libraries\Jobs\LibJob.Core\LibJob.Core.csproj", "{B99524C7-748A-4210-9738-C45D422B6E25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{BF128C6C-137A-4070-9AD1-000FC9E59A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF128C6C-137A-4070-9AD1-000FC9E59A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF128C6C-137A-4070-9AD1-000FC9E59A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99524C7-748A-4210-9738-C45D422B6E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99524C7-748A-4210-9738-C45D422B6E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99524C7-748A-4210-9738-C45D422B6E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99524C7-748A-4210-9738-C45D422B6E25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{9854733C-6197-4188-A6BB-8F51E28D0390} = {97D2678C-8EEE-4F19-AC48-68FB2D243836}
 		{5C3F2F3C-A168-48E4-A2A3-C3E0368364D5} = {C33D397B-C51F-44DC-9070-FB2C66B9083B}
 		{BF128C6C-137A-4070-9AD1-000FC9E59A77} = {9854733C-6197-4188-A6BB-8F51E28D0390}
+		{B99524C7-748A-4210-9738-C45D422B6E25} = {45016BD4-8374-49C8-8C75-CB37054B88B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E02EEAF-59E7-4C3E-A715-AD366FB0BAD0}

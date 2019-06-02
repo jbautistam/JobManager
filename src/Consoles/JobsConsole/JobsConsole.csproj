@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Management.Automation" Version="6.2.0" />
+		<PackageReference Include="Bau.Libraries.LibMarkup" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

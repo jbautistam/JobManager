@@ -5,7 +5,7 @@ namespace Bau.Applications.JobsManager
 	/// <summary>
 	///		Consola de ejecución
 	/// </summary>
-	internal class ConsoleOutput : Libraries.LibJob.Application.Interfaces.IConsoleOutput
+	internal class ConsoleOutput : Libraries.LibJob.Core.Interfaces.IConsoleOutput
 	{
 		/// <summary>
 		///		Escribe un mensaje en la consola

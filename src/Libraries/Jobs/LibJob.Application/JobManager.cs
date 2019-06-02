@@ -2,9 +2,10 @@
 using System.Threading.Tasks;
 
 using Bau.Libraries.LibDataStructures.Collections;
-using Bau.Libraries.LibJob.Application.Models;
-using Bau.Libraries.LibJob.Application.Models.Configuration;
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Interfaces;
+using Bau.Libraries.LibJob.Core.Models;
+using Bau.Libraries.LibJob.Core.Models.Context;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
 namespace Bau.Libraries.LibJob.Application
 {
@@ -13,33 +14,32 @@ namespace Bau.Libraries.LibJob.Application
 	/// </summary>
 	public class JobManager
 	{
-		public JobManager(Interfaces.ILogger logger, Interfaces.IConsoleOutput consoleOutput)
+		public JobManager(ILogger logger, IConsoleOutput consoleOutput)
 		{
-			Context = new Models.Context.JobContextModel(this, logger, consoleOutput);
+			Context = new JobContextModel(logger, consoleOutput);
 		}
 
 		/// <summary>
 		///		Inicializa el manager de trabajo con los plugins
 		/// </summary>
-		public bool Initialize(string configurationFile)
+		public bool Initialize(System.Collections.Generic.List<string> pathPlugins)
 		{
-			ConfigurationModel configuration = new Repository.JobManagerRepository().LoadConfiguration(configurationFile);
 			bool initialized = false;
 
 				// Carga los plugins
-				if (!ValidateData(configuration, out string error))
+				if (!ValidateData(pathPlugins, out string error))
 					Context.Logger.WriteError("JobManager - Initialize plugins", error);
 				else
 				{
-					Processor.Controllers.PluginsManager<Processor.JobStepProcessorBase> pluginsManager = new Processor.Controllers.PluginsManager<Processor.JobStepProcessorBase>();
+					Processor.Controllers.PluginsManager<IJobStepProcessor> pluginsManager = new Processor.Controllers.PluginsManager<IJobStepProcessor>();
 
 						// Inicializa el manejador de plugins
-						pluginsManager.Initialize(configuration.PathPlugins, ".dll");
+						pluginsManager.Initialize(pathPlugins, ".dll");
 						// Controla los errores
 						if (pluginsManager.Errors.Count == 0)
 						{
 							// Añade los procesadores
-							foreach (Processor.JobStepProcessorBase processor in pluginsManager.Plugins)
+							foreach (IJobStepProcessor processor in pluginsManager.Plugins)
 								Processors.Add(processor.Key, processor);
 							// Indica que se ha inicializado correctamente
 							initialized = true;
@@ -55,15 +55,15 @@ namespace Bau.Libraries.LibJob.Application
 		/// <summary>
 		///		Comprueba los datos introducidos
 		/// </summary>
-		private bool ValidateData(ConfigurationModel configuration, out string error)
+		private bool ValidateData(System.Collections.Generic.List<string> pathPlugins, out string error)
 		{
 			// Inicializa los argumentos de salida
 			error = string.Empty;
 			// Comprueba los datos
-			if (configuration.PathPlugins.Count == 0)
+			if (pathPlugins == null || pathPlugins.Count == 0)
 				error = "Don't exists plugin defined in configuration file";
 			else
-				foreach (string path in configuration.PathPlugins)
+				foreach (string path in pathPlugins)
 					if (string.IsNullOrWhiteSpace(path))
 						error += "There is a path empty in the plugins definition.";
 					else if (!System.IO.Directory.Exists(path))
@@ -124,7 +124,7 @@ namespace Bau.Libraries.LibJob.Application
 		/// </summary>
 		private async Task ProcessStepAsync(ProcessStepModel step)
 		{
-			Processor.JobStepProcessorBase processor = Processors[step.PluginKey];
+			IJobStepProcessor processor = Processors[step.PluginKey];
 
 				// Procesa el trabajo
 				if (processor == null)
@@ -151,12 +151,12 @@ namespace Bau.Libraries.LibJob.Application
 		/// <summary>
 		///		Muestra la información de tiempos
 		/// </summary>
-		private void ShowBenchmarks(System.Collections.Generic.List<Models.Context.JobBenchmarkModel> benchmarks)
+		private void ShowBenchmarks(System.Collections.Generic.List<JobBenchmarkModel> benchmarks)
 		{
 			string lastJob = string.Empty, lastStep = string.Empty;
 
 				// Recorre la información
-				foreach (Models.Context.JobBenchmarkModel benchmark in benchmarks)
+				foreach (JobBenchmarkModel benchmark in benchmarks)
 				{
 					// Información del trabajo
 					if (!lastJob.Equals(benchmark.Job, StringComparison.CurrentCultureIgnoreCase))
@@ -178,11 +178,11 @@ namespace Bau.Libraries.LibJob.Application
 		/// <summary>
 		///		Procesadores
 		/// </summary>
-		internal NormalizedDictionary<Processor.JobStepProcessorBase> Processors { get; } = new NormalizedDictionary<Processor.JobStepProcessorBase>();
+		internal NormalizedDictionary<IJobStepProcessor> Processors { get; } = new NormalizedDictionary<IJobStepProcessor>();
 
 		/// <summary>
 		///		Contexto
 		/// </summary>
-		private Models.Context.JobContextModel Context { get; }
+		private JobContextModel Context { get; }
 	}
 }

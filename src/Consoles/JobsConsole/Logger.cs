@@ -5,7 +5,7 @@ namespace Bau.Applications.JobsManager
 	/// <summary>
 	///		Clase para manejo de log
 	/// </summary>
-	internal class Logger : Libraries.LibJob.Application.Interfaces.ILogger
+	internal class Logger : Libraries.LibJob.Core.Interfaces.ILogger
 	{
 		/// <summary>
 		///		Tipo de log

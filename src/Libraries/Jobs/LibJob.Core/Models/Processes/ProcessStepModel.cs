@@ -2,7 +2,7 @@
 
 using Bau.Libraries.LibDataStructures.Collections;
 
-namespace Bau.Libraries.LibJob.Application.Models.Processes
+namespace Bau.Libraries.LibJob.Core.Models.Processes
 {
 	/// <summary>
 	///		Paso de un trabajo

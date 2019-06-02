@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bau.Libraries.LibJob.Application.Models.Processes
+namespace Bau.Libraries.LibJob.Core.Models.Processes
 {
 	/// <summary>
 	///		Base para los procesos de un trabajo

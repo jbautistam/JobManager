@@ -16,6 +16,7 @@ namespace Bau.Applications.JobsManager
 
 				// Carga los datos de la configuración
 				configuration.Parse(args);
+				configuration.LoadPathPlugins();
 				// Valida la configuración antes de continuar
 				if (!configuration.Validate(out string error))
 				{
@@ -27,7 +28,7 @@ namespace Bau.Applications.JobsManager
 					JobManager manager = new JobManager(new Logger(Logger.LogItemType.Debug), new ConsoleOutput());
 
 						// Inicializa el manager
-						if (manager.Initialize(configuration.ProcessorsDefinitionFileName))
+						if (manager.Initialize(configuration.PathPlugins))
 							await manager.ProcessAsync(configuration.ScriptFileName);
 						else
 							Console.WriteLine("Error while initialize job manager");

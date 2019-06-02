@@ -11,7 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Libraries\Jobs\LibJob.Application\LibJob.Application.csproj" />
+	  <ProjectReference Include="..\..\Libraries\Jobs\LibJob.Core\LibJob.Core.csproj" />
 	</ItemGroup>
 
 </Project>

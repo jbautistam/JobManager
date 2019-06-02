@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bau.Libraries.LibJob.Application.Models.Processes
+namespace Bau.Libraries.LibJob.Core.Models.Processes
 {
 	/// <summary>
 	///		Clase con los datos de un bloque de procesos: los procesos de un bloque se ejecutan en paralelo

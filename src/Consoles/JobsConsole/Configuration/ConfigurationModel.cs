@@ -20,6 +20,14 @@ namespace Bau.Applications.JobsManager.Configuration
 		}
 
 		/// <summary>
+		///		Carga los directorios de plugins
+		/// </summary>
+		internal void LoadPathPlugins()
+		{
+			PathPlugins.AddRange(new ConfigurationProcessorsRepository().LoadPathPlugins(ProcessorsDefinitionFileName));
+		}
+
+		/// <summary>
 		///		Valida la configuración
 		/// </summary>
 		internal bool Validate(out string error)
@@ -49,6 +57,11 @@ namespace Bau.Applications.JobsManager.Configuration
 				return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 			}
 		}
+
+		/// <summary>
+		///		Directorio de plugins
+		/// </summary>
+		internal System.Collections.Generic.List<string> PathPlugins { get; } = new System.Collections.Generic.List<string>();
 
 		/// <summary>
 		///		Nombre del archivo que define los directorios donde se encuentran los diferentes procesadores

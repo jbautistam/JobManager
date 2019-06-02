@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
-namespace Bau.Libraries.LibJob.Application.Interfaces
+namespace Bau.Libraries.LibJob.Core.Interfaces
 {
 	/// <summary>
 	///		Interface para los procesadores de un paso de un trabajo

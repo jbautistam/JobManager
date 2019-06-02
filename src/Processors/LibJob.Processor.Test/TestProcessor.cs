@@ -8,7 +8,7 @@ namespace Bau.Libraries.LibJob.Processor.Test
 	/// <summary>
 	///		Procesador de prueba
 	/// </summary>
-	public class TestProcessor : Application.Processor.JobStepProcessorBase
+	public class TestProcessor : Core.Processors.JobStepProcessorBase
 	{
 		public TestProcessor() : base("TestProcessor") {}
 

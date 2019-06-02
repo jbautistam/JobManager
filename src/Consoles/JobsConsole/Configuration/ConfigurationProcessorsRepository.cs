@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
-using Bau.Libraries.LibJob.Application.Models.Configuration;
 using Bau.Libraries.LibMarkupLanguage;
 
-namespace Bau.Libraries.LibJob.Application.Repository
+namespace Bau.Applications.JobsManager.Configuration
 {
 	/// <summary>
 	///		Repositorio para la carga de archivos de configuración
 	/// </summary>
-	internal class JobManagerRepository
+	internal class ConfigurationProcessorsRepository
 	{
 		// Constantes privadas
 		private const string TagRoot = "JobManager";
@@ -17,12 +17,12 @@ namespace Bau.Libraries.LibJob.Application.Repository
 		/// <summary>
 		///		Carga la configuración
 		/// </summary>
-		internal ConfigurationModel LoadConfiguration(string fileName)
+		internal List<string> LoadPathPlugins(string fileName)
 		{
-			ConfigurationModel configuration = new ConfigurationModel();
-			MLFile fileML = new LibMarkupLanguage.Services.XML.XMLParser().Load(fileName);
+			List<string> pathPlugins = new List<string>();
+			MLFile fileML = new Libraries.LibMarkupLanguage.Services.XML.XMLParser().Load(fileName);
 
-				// Carga los datos del archivo
+				// Carga los directorios de plugins
 				if (fileML != null)
 					foreach (MLNode rootML in fileML.Nodes)
 						if (rootML.Name == TagRoot)
@@ -31,11 +31,11 @@ namespace Bau.Libraries.LibJob.Application.Repository
 								{
 									case TagProcessor:
 											if (!string.IsNullOrEmpty(nodeML.Value))
-												configuration.PathPlugins.Add(nodeML.Value.Trim());
+												pathPlugins.Add(nodeML.Value.Trim());
 										break;
 								}
-				// Devuelve la configuración
-				return configuration;
+				// Devuelve los directorios de plugins
+				return pathPlugins;
 		}
 	}
 }

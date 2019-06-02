@@ -2,10 +2,9 @@
 
 using Bau.Libraries.LibCommonHelper.Extensors;
 using Bau.Libraries.LibMarkupLanguage;
-using Bau.Libraries.LibDataStructures.Trees;
 using Bau.Libraries.LibDataStructures.Collections;
-using Bau.Libraries.LibJob.Application.Models;
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Models;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
 namespace Bau.Libraries.LibJob.Application.Repository
 {

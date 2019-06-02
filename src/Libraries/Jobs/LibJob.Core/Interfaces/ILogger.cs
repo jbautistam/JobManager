@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bau.Libraries.LibJob.Application.Interfaces
+namespace Bau.Libraries.LibJob.Core.Interfaces
 {
 	/// <summary>
 	///		Interface para tratamiento de log

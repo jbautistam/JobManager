@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
-namespace Bau.Libraries.LibJob.Application.Processor
+namespace Bau.Libraries.LibJob.Core.Processors
 {
 	/// <summary>
 	///		Base para los procesadores de trabajos

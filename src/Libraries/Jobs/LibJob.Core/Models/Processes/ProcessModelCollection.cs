@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bau.Libraries.LibJob.Application.Models.Processes
+namespace Bau.Libraries.LibJob.Core.Models.Processes
 {
 	/// <summary>
 	///		Colección de <see cref="ProcessBaseModel"/>

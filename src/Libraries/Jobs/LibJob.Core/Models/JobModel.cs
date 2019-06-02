@@ -1,9 +1,9 @@
 ﻿using System;
 
 using Bau.Libraries.LibDataStructures.Collections;
-using Bau.Libraries.LibJob.Application.Models.Processes;
+using Bau.Libraries.LibJob.Core.Models.Processes;
 
-namespace Bau.Libraries.LibJob.Application.Models
+namespace Bau.Libraries.LibJob.Core.Models
 {
 	/// <summary>
 	///		Modelo con los datos necesarios para ejecutar un trabajo
@@ -20,23 +20,12 @@ namespace Bau.Libraries.LibJob.Application.Models
 				// Añade los datos a la cadena de depuración
 				builder.AppendLine($"{nameof(Name)}: {Name}");
 				builder.AppendLine($"{nameof(Description)}: {Description}");
-				builder.AppendLine($"{nameof(PathOutput)}: {PathOutput}");
 				// Añade los pasos
 				foreach (ProcessStepModel step in Steps)
 					builder.Append(step.Debug(0));
 				// Devuelve la cadena de depuración
 				return builder.ToString();
 		}
-
-		/// <summary>
-		///		Directorio base para los proyectos
-		/// </summary>
-		public string PathProject { get; set; }
-
-		/// <summary>
-		///		Directorio base de salida
-		/// </summary>
-		public string PathOutput { get; set; }
 
 		/// <summary>
 		///		Pasos

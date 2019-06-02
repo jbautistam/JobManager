@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bau.Libraries.LibJob.Application.Models.Context
+namespace Bau.Libraries.LibJob.Core.Models.Context
 {
 	/// <summary>
 	///		Modelo para los datos de benchmark
